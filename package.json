@@ -1,0 +1,12 @@
+{
+  "name": "svg-generator",
+  "version": "1.0.0",
+  "description": "## About This is an application that will generate a SVG image based on user input.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

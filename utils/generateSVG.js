@@ -1,4 +1,4 @@
-const index = require('../SVG-Generator/Develop/index.js')
+const index = require('../Develop/index.js')
 
 
 const generateSVG = ({shape, shapeColor, textColor, initials}) =>
@@ -12,6 +12,7 @@ const generateSVG = ({shape, shapeColor, textColor, initials}) =>
 </svg>`
 
 
+module.exports = {generateSVG}
 
 
 
