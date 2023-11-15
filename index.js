@@ -1,8 +1,7 @@
 const inquirer = require('inquirer')
-const {readFile, writeFile} = require('fs').promises
-const {generateSquare} = require('/utils/Square.js')
-const {generateSVG} = require('./utils/Circle.js')
-const {generateTri} = require('./utils/Triangle.js')
+const { readFile, writeFile } = require('fs').promises
+const Circle = require('./utils/Circle.js')
+const Triangle = require('./utils/Triangle.js')
 const Square = require('./utils/Square.js')
 // const {generateSq} = require('../utils/generateSq.js')
 
@@ -37,12 +36,27 @@ let svgQuestions = [
 
 function init() {
     inquirer.prompt(svgQuestions)
-    .then(res => {
-        const svgImage = new Square(res)
-        // const shape = res.choices
-        writeFile(`/utils/images/logo.svg`, svgImage.render())
-    })
+        .then(res => {
+            let svgImage
+            switch (res.shape) {
+
+                case "triangle":
+                    svgImage = new Triangle(res.shapeColor, res.textColor, res.initials)
+                    // const shape = res.choices
+                    writeFile(`utils/images/logo.svg`, svgImage.render())
+                    break
+                case "circle":
+                    svgImage = new Circle(res.shapeColor, res.textColor, res.initials)
+                    // const shape = res.choices
+                    writeFile(`utils/images/logo.svg`, svgImage.render())
+                    break
+                case "square":
+                    svgImage = new Square(res.shapeColor, res.textColor, res.initials)
+                    writeFile(`utils/images/logo.svg`, svgImage.render())
+            }
+        })
 }
+
 
 init()
 
